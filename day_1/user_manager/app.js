@@ -3,6 +3,12 @@ var app = express();
 
 var request = require("request");
 
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
+
 app.set("view engine", "ejs");
 
 app.get("/first", function(req, res) {
@@ -35,4 +41,28 @@ app.get("/all", function(req, res) {
 	});
 });
 
+app.get("/new", function(req, res) {
+	res.render("new");
+});
+
+app.post("/new", function(req, res) {
+	request({
+		method: "POST",
+		uri: "http://daretodiscover.herokuapp.com/users",
+		formData: {
+			firstname: req.body.firstname,
+			lastname: req.body.lastname,
+			username: req.body.username,
+			age: req.body.age
+		}
+	}, function(error, response, body) {
+		res.redirect("/all");
+	});
+});
+
 app.listen(3000);
+
+
+
+
+
