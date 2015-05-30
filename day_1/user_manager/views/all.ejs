@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User List</title>
+</head>
+<body>
+
+<table>
+	<tr>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Username</td>
+		<td>Age</td>
+	</tr>
+	<% for (var i = 0; i < allUsers.length; i++) { %>
+		<tr>
+			<td><%= allUsers[i].firstname %></td>
+			<td><%= allUsers[i].lastname %></td>
+			<td><%= allUsers[i].username %></td>
+			<td><%= allUsers[i].age %></td>
+		</tr>
+	<% } %>
+</table>
+
+</body>
+</html>

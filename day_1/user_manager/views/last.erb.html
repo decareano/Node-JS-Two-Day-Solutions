@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User List</title>
+</head>
+<body>
+
+<% for (var i = 0; i < allUsers.length; i++) { %>
+	<div><%= allUsers[i].firstname %></div>
+<% } %>
+
+<% allUsers.forEach(function(user) { %>
+	<div><%= user.firstname %></div>
+<% }); %>
+
+</body>
+</html>
