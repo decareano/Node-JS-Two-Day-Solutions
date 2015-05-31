@@ -60,6 +60,14 @@ app.post("/new", function(req, res) {
 	});
 });
 
+app.get("/edit/:id", function(req, res) {
+	request("http://daretodiscover.herokuapp.com/users/" + req.params.id, function(error, response, body) {
+		res.render("edit", {
+			userInfo: JSON.parse(body)
+		});
+	});
+});
+
 app.listen(3000);
 
 
