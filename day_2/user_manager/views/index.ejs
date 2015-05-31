@@ -29,13 +29,15 @@
 			<th>Action</th>
 		</thead>
 		<tbody>
-			<tr>
-				<td>Arun</td>
-				<td>Sood</td>
-				<td>27</td>
-				<td>arsood</td>
-				<td><a href="#" class="btn btn-primary">Edit User</a></td>
-			</tr>
+			<% allUsers.forEach(function(user) { %>
+				<tr>
+					<td><%= user.firstname %></td>
+					<td><%= user.lastname %></td>
+					<td><%= user.age %></td>
+					<td><%= user.username %></td>
+					<td><a href="/edit/<%= user.id %>" class="btn btn-primary">Edit User</a></td>
+				</tr>
+			<% }); %>
 		</tbody>
 	</table>
 </div>
